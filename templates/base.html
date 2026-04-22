@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}Bernd Slagter{% endblock %}</title>
+  <meta name="description" content="{% block meta_desc %}Bernd Slagter — MSc Information Management.{% endblock %}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  {% block extra_head %}{% endblock %}
+  <script>
+    (function () {
+      var saved = localStorage.getItem('theme');
+      var system = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', saved || system);
+    })();
+  </script>
+</head>
+<body>
+
+<nav>
+  <div class="container nav-inner">
+    <a href="{% url 'home' %}" class="nav-logo">Bernd Slagter</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="{% url 'home' %}">Home</a></li>
+      <li><a href="{% url 'about' %}">About</a></li>
+      <li><a href="{% url 'projects' %}">Projects</a></li>
+      <li><a href="{% url 'skills' %}">Skills</a></li>
+      <li><a href="{% url 'contact' %}">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark mode">
+        <span class="toggle-track">
+          <i class="fa-solid fa-moon toggle-icon"></i>
+          <i class="fa-solid fa-sun toggle-icon"></i>
+          <span class="toggle-thumb"></span>
+        </span>
+      </button>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main>
+  {% block content %}{% endblock %}
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <span class="footer-copy">&copy; 2026 Bernd Slagter</span>
+    <div class="footer-links">
+      <a href="https://linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/" target="_blank" rel="noopener">GitHub</a>
+      <a href="mailto:bernd.slagter27@gmail.com">Email</a>
+    </div>
+  </div>
+</footer>
+
+<button id="scrollTop" aria-label="Scroll to top">
+  <i class="fa-solid fa-arrow-up"></i>
+</button>
+
+<script src="{% static 'js/main.js' %}"></script>
+{% block extra_js %}{% endblock %}
+</body>
+</html>

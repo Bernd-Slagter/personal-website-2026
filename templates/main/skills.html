@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+
+{% block title %}Skills — Bernd Slagter{% endblock %}
+
+{% block content %}
+
+<div class="page-header">
+  <div class="container">
+    <h1>Skills</h1>
+    <p>What I work with.</p>
+  </div>
+</div>
+
+<div class="container" style="padding-bottom: 4rem;">
+
+  {% if technical %}
+  <section style="margin-bottom: 3rem;">
+    <div class="cat-label">Technical</div>
+    <div class="skills-list">
+      {% for skill in technical %}
+      <div class="skill-item">
+        <div class="skill-header">
+          <span class="skill-name">{{ skill.name }}</span>
+          <span class="skill-pct">{{ skill.proficiency }}%</span>
+        </div>
+        <div class="skill-bar">
+          <div class="skill-fill" data-width="{{ skill.proficiency }}"></div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
+  {% if tools %}
+  <section style="margin-bottom: 3rem;">
+    <div class="cat-label">Tools &amp; platforms</div>
+    <div class="skills-list">
+      {% for skill in tools %}
+      <div class="skill-item">
+        <div class="skill-header">
+          <span class="skill-name">{{ skill.name }}</span>
+          <span class="skill-pct">{{ skill.proficiency }}%</span>
+        </div>
+        <div class="skill-bar">
+          <div class="skill-fill" data-width="{{ skill.proficiency }}"></div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
+  {% if soft %}
+  <section style="margin-bottom: 3rem;">
+    <div class="cat-label">Other</div>
+    <div class="interests-wrap">
+      {% for skill in soft %}
+        <span class="interest-chip">{{ skill.name }}</span>
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
+  {% if languages %}
+  <section style="margin-bottom: 3rem;">
+    <div class="cat-label">Languages</div>
+    <div class="skills-list">
+      {% for skill in languages %}
+      <div class="skill-item">
+        <div class="skill-header">
+          <span class="skill-name">{{ skill.name }}</span>
+          <span class="skill-pct">{{ skill.proficiency }}%</span>
+        </div>
+        <div class="skill-bar">
+          <div class="skill-fill" data-width="{{ skill.proficiency }}"></div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
+  {% if not technical and not tools and not soft and not languages %}
+  <p class="empty-state">Add skills via the admin panel.</p>
+  {% endif %}
+
+</div>
+{% endblock %}

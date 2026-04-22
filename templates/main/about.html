@@ -1,0 +1,142 @@
+{% extends 'base.html' %}
+
+{% block title %}About — Bernd Slagter{% endblock %}
+
+{% block content %}
+
+<div class="page-header">
+  <div class="container">
+    <h1>About</h1>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="about-grid" style="margin-bottom: 3rem;">
+    <div class="about-bio">
+      <p>
+        I'm pursuing an MSc in Information Management, which sits at the crossroads of
+        IT, business, and data. My interest is in how organisations actually use the
+        information they generate — not just storing it, but making it actionable.
+      </p>
+      <p>
+        On the technical side I work mostly with Python and SQL, build things with Django
+        when a project calls for it, and spend a fair amount of time in Jupyter notebooks.
+        On the business side I'm drawn to questions about information governance, data
+        quality, and the gap between what a dashboard shows and what a decision-maker needs.
+      </p>
+      <p>
+        Before the master's I studied Business & Information Management, which gave me a
+        grounding in process design and IT infrastructure. Outside of studying I follow
+        markets, read broadly, and go hiking when the weather cooperates.
+      </p>
+      <div style="display: flex; gap: 0.6rem; flex-wrap: wrap; margin-top: 1.5rem;">
+        <a href="{% url 'contact' %}" class="btn btn-primary">Get in touch</a>
+        <a href="{% url 'projects' %}" class="btn">View projects</a>
+      </div>
+    </div>
+
+    <div class="about-meta">
+      <div class="meta-row">
+        <div class="meta-key">Degree</div>
+        <div class="meta-val">MSc Information Management</div>
+      </div>
+      <div class="meta-row">
+        <div class="meta-key">Location</div>
+        <div class="meta-val">Netherlands</div>
+      </div>
+      <div class="meta-row">
+        <div class="meta-key">Email</div>
+        <div class="meta-val"><a href="mailto:bernd.slagter27@gmail.com">bernd.slagter27@gmail.com</a></div>
+      </div>
+      <div class="meta-row">
+        <div class="meta-key">GitHub</div>
+        <div class="meta-val"><a href="https://github.com/" target="_blank">github.com/berndslagter</a></div>
+      </div>
+      <div class="meta-row">
+        <div class="meta-key">LinkedIn</div>
+        <div class="meta-val"><a href="https://linkedin.com/" target="_blank">linkedin.com/in/berndslagter</a></div>
+      </div>
+      <div class="meta-row">
+        <div class="meta-key">Languages</div>
+        <div class="meta-val">Dutch, English</div>
+      </div>
+      <div class="meta-row">
+        <div class="meta-key">Status</div>
+        <div class="meta-val">
+          <span class="status">
+            <span class="status-dot green"></span> Open to opportunities
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="rule">
+
+  <section style="margin-bottom: 3rem;">
+    <div class="cat-label">Education</div>
+    {% if education %}
+    <div class="timeline">
+      {% for edu in education %}
+      <div class="timeline-item">
+        <div class="timeline-period">{{ edu.get_period }}</div>
+        <div>
+          <div class="timeline-title">{{ edu.degree }}</div>
+          <div class="timeline-org">{{ edu.institution }}{% if edu.location %} &middot; {{ edu.location }}{% endif %}</div>
+          {% if edu.description %}<div class="timeline-desc">{{ edu.description }}</div>{% endif %}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    {% else %}
+    <p class="empty-state">Add education via the admin panel.</p>
+    {% endif %}
+  </section>
+
+  <hr class="rule">
+
+  <section style="margin-bottom: 3rem;">
+    <div class="cat-label">Experience</div>
+    {% if experience %}
+    <div class="timeline">
+      {% for exp in experience %}
+      <div class="timeline-item">
+        <div class="timeline-period">{{ exp.get_period }}</div>
+        <div>
+          <div class="timeline-title">
+            {{ exp.title }}
+            {% if exp.is_current %}
+              <span class="status" style="margin-left: 0.5rem;">
+                <span class="status-dot green"></span> Current
+              </span>
+            {% endif %}
+          </div>
+          <div class="timeline-org">{{ exp.organization }}{% if exp.location %} &middot; {{ exp.location }}{% endif %}</div>
+          <div class="timeline-desc">{{ exp.description }}</div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    {% else %}
+    <p class="empty-state">Add experience via the admin panel.</p>
+    {% endif %}
+  </section>
+
+  <hr class="rule">
+
+  <section style="margin-bottom: 4rem;">
+    <div class="cat-label">Interests</div>
+    {% if interests %}
+    <div class="interests-wrap">
+      {% for interest in interests %}
+        <span class="interest-chip">{{ interest.name }}</span>
+      {% endfor %}
+    </div>
+    {% else %}
+    <p class="empty-state">Add interests via the admin panel.</p>
+    {% endif %}
+  </section>
+
+</div>
+{% endblock %}

@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block title %}Contact — Bernd Slagter{% endblock %}
+
+{% block content %}
+
+<div class="page-header">
+  <div class="container">
+    <h1>Contact</h1>
+    <p>Happy to hear from you.</p>
+  </div>
+</div>
+
+<div class="container" style="padding-bottom: 4rem;">
+
+  <div class="contact-info">
+    <a href="mailto:bernd.slagter27@gmail.com" class="contact-link">
+      <i class="fa-solid fa-envelope"></i> bernd.slagter27@gmail.com
+    </a>
+    <a href="https://linkedin.com/" target="_blank" rel="noopener" class="contact-link">
+      <i class="fa-brands fa-linkedin"></i> linkedin.com/in/berndslagter
+    </a>
+    <a href="https://github.com/" target="_blank" rel="noopener" class="contact-link">
+      <i class="fa-brands fa-github"></i> github.com/berndslagter
+    </a>
+  </div>
+
+  <p style="font-size: 0.88rem; margin-bottom: 2rem;">
+    Or send me a message directly and I'll get back to you within a day or two.
+  </p>
+
+  {% for message in messages %}
+  <div class="alert {% if message.tags == 'success' %}alert-success{% else %}alert-error{% endif %}">
+    {{ message }}
+  </div>
+  {% endfor %}
+
+  <form method="post" class="contact-form">
+    {% csrf_token %}
+    <div class="form-row">
+      <div class="form-group">
+        <label class="form-label" for="name">Name</label>
+        <input type="text" id="name" name="name" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="email">Email</label>
+        <input type="email" id="email" name="email" class="form-control" required>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="form-label" for="subject">Subject</label>
+      <input type="text" id="subject" name="subject" class="form-control" required>
+    </div>
+    <div class="form-group">
+      <label class="form-label" for="message">Message</label>
+      <textarea id="message" name="message" class="form-control" required></textarea>
+    </div>
+    <div>
+      <button type="submit" class="btn btn-primary">Send message</button>
+    </div>
+  </form>
+
+</div>
+{% endblock %}

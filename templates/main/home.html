@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+
+{% block title %}Bernd Slagter{% endblock %}
+
+{% block content %}
+
+<section class="hero">
+  <div class="container">
+    <h1 class="hero-name">Bernd Slagter</h1>
+    <p class="hero-sub">MSc Information Management &middot; Netherlands</p>
+    <p class="hero-bio">
+      I'm a master's student focused on how organisations collect, manage, and act on information.
+      I like building things with data — pipelines, dashboards, analysis tools — and thinking about
+      the systems that make information actually useful.
+    </p>
+    <div class="hero-actions">
+      <a href="{% url 'projects' %}" class="btn btn-primary">Projects</a>
+      <a href="{% url 'about' %}" class="btn">About</a>
+      <a href="{% url 'contact' %}" class="btn">Contact</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-row">
+      <h2>Featured projects</h2>
+      <a href="{% url 'projects' %}" style="font-size: 0.83rem; color: var(--muted);">All projects →</a>
+    </div>
+
+    {% if featured_projects %}
+    <div class="projects-list">
+      {% for project in featured_projects %}
+      <div class="project-item">
+        <div class="project-item-body">
+          <h3><a href="{% url 'project_detail' project.slug %}" style="color: var(--text); text-decoration: none;">{{ project.title }}</a></h3>
+          <p>{{ project.short_description }}</p>
+          <div class="tech-tags">
+            {% for tech in project.get_technologies_list %}
+              <span class="tech-tag">{{ tech }}</span>
+            {% endfor %}
+          </div>
+        </div>
+        <div class="project-item-links">
+          {% if project.github_url %}
+            <a href="{{ project.github_url }}" target="_blank" rel="noopener" class="btn btn-sm" title="GitHub">
+              <i class="fa-brands fa-github"></i>
+            </a>
+          {% endif %}
+          {% if project.live_url %}
+            <a href="{{ project.live_url }}" target="_blank" rel="noopener" class="btn btn-sm" title="Live">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+          {% endif %}
+          <a href="{% url 'project_detail' project.slug %}" class="btn btn-sm">View</a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    {% else %}
+    <p class="empty-state">No featured projects yet.</p>
+    {% endif %}
+  </div>
+</section>
+
+<section class="section" style="padding-top: 0;">
+  <div class="container">
+    <div class="section-row">
+      <h2>Skills</h2>
+      <a href="{% url 'skills' %}" style="font-size: 0.83rem; color: var(--muted);">All skills →</a>
+    </div>
+
+    {% if skills %}
+    <div class="skills-list">
+      {% for skill in skills|slice:":8" %}
+      <div class="skill-item">
+        <div class="skill-header">
+          <span class="skill-name">{{ skill.name }}</span>
+          <span class="skill-pct">{{ skill.proficiency }}%</span>
+        </div>
+        <div class="skill-bar">
+          <div class="skill-fill" data-width="{{ skill.proficiency }}" style="width:{{ skill.proficiency }}%"></div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    {% else %}
+    <p class="empty-state">No skills added yet.</p>
+    {% endif %}
+  </div>
+</section>
+
+<div class="container">
+  <div class="cta-strip">
+    <div>
+      <h2>Get in touch</h2>
+      <p>Open to collaborations, student projects, or just a conversation.</p>
+    </div>
+    <a href="{% url 'contact' %}" class="btn btn-primary">Say hello</a>
+  </div>
+</div>
+
+{% endblock %}
