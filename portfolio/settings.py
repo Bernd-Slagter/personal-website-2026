@@ -26,6 +26,14 @@ if os.environ.get('RAILWAY_PUBLIC_DOMAIN'):
 if os.environ.get('ALLOWED_HOSTS'):
     ALLOWED_HOSTS += os.environ['ALLOWED_HOSTS'].split(',')
 
+CSRF_TRUSTED_ORIGINS = ['http://localhost', 'http://127.0.0.1']
+if os.environ.get('RAILWAY_PUBLIC_DOMAIN'):
+    CSRF_TRUSTED_ORIGINS.append(f"https://{os.environ['RAILWAY_PUBLIC_DOMAIN']}")
+if os.environ.get('ALLOWED_HOSTS'):
+    CSRF_TRUSTED_ORIGINS += [f"https://{h}" for h in os.environ['ALLOWED_HOSTS'].split(',')]
+
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
 
 # Application definition
 
