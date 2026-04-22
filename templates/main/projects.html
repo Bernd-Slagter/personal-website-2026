@@ -1,23 +1,24 @@
 {% extends 'base.html' %}
+{% load i18n %}
 
-{% block title %}Projects — Bernd Slagter{% endblock %}
+{% block title %}{% trans "Projects" %} — Bernd Slagter{% endblock %}
 
 {% block content %}
 
 <div class="page-header">
   <div class="container">
-    <h1>Projects</h1>
-    <p>Things I've built or worked on.</p>
+    <h1>{% trans "Projects" %}</h1>
+    <p>{% trans "Things I've built or worked on." %}</p>
   </div>
 </div>
 
 <div class="container" style="padding-bottom: 4rem;">
 
   <div class="filter-tabs">
-    <a href="{% url 'projects' %}" class="filter-tab {% if not status_filter %}active{% endif %}">All</a>
-    <a href="{% url 'projects' %}?status=completed" class="filter-tab {% if status_filter == 'completed' %}active{% endif %}">Completed</a>
-    <a href="{% url 'projects' %}?status=in_progress" class="filter-tab {% if status_filter == 'in_progress' %}active{% endif %}">In progress</a>
-    <a href="{% url 'projects' %}?status=planned" class="filter-tab {% if status_filter == 'planned' %}active{% endif %}">Planned</a>
+    <a href="{% url 'projects' %}" class="filter-tab {% if not status_filter %}active{% endif %}">{% trans "All" %}</a>
+    <a href="{% url 'projects' %}?status=completed" class="filter-tab {% if status_filter == 'completed' %}active{% endif %}">{% trans "Completed" %}</a>
+    <a href="{% url 'projects' %}?status=in_progress" class="filter-tab {% if status_filter == 'in_progress' %}active{% endif %}">{% trans "In progress" %}</a>
+    <a href="{% url 'projects' %}?status=planned" class="filter-tab {% if status_filter == 'planned' %}active{% endif %}">{% trans "Planned" %}</a>
   </div>
 
   {% if projects %}
@@ -36,9 +37,9 @@
             {% endfor %}
           </div>
           {% if project.status == 'in_progress' %}
-            <span class="status"><span class="status-dot amber"></span> In progress</span>
+            <span class="status"><span class="status-dot amber"></span> {% trans "In progress" %}</span>
           {% elif project.status == 'planned' %}
-            <span class="status"><span class="status-dot"></span> Planned</span>
+            <span class="status"><span class="status-dot"></span> {% trans "Planned" %}</span>
           {% endif %}
         </div>
       </div>
@@ -53,13 +54,13 @@
             <i class="fa-solid fa-arrow-up-right-from-square"></i>
           </a>
         {% endif %}
-        <a href="{% url 'project_detail' project.slug %}" class="btn btn-sm">View</a>
+        <a href="{% url 'project_detail' project.slug %}" class="btn btn-sm">{% trans "View" %}</a>
       </div>
     </div>
     {% endfor %}
   </div>
   {% else %}
-  <p class="empty-state">No projects found.</p>
+  <p class="empty-state">{% trans "No projects found." %}</p>
   {% endif %}
 
 </div>

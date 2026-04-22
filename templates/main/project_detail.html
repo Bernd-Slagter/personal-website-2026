@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load i18n %}
 
 {% block title %}{{ project.title }} — Bernd Slagter{% endblock %}
 {% block meta_desc %}{{ project.short_description }}{% endblock %}
@@ -7,14 +8,14 @@
 
 <div class="page-header">
   <div class="container">
-    <a href="{% url 'projects' %}" style="font-size: 0.83rem; color: var(--muted); text-decoration: none; display: inline-block; margin-bottom: 1rem;">← Projects</a>
+    <a href="{% url 'projects' %}" style="font-size: 0.83rem; color: var(--muted); text-decoration: none; display: inline-block; margin-bottom: 1rem;">← {% trans "Projects" %}</a>
     <h1>{{ project.title }}</h1>
     <div style="display: flex; align-items: center; gap: 1rem; margin-top: 0.5rem; flex-wrap: wrap;">
       <span style="font-size: 0.83rem; color: var(--muted);">{{ project.created_date|date:"F Y" }}</span>
       {% if project.status == 'in_progress' %}
-        <span class="status"><span class="status-dot amber"></span> In progress</span>
+        <span class="status"><span class="status-dot amber"></span> {% trans "In progress" %}</span>
       {% elif project.status == 'planned' %}
-        <span class="status"><span class="status-dot"></span> Planned</span>
+        <span class="status"><span class="status-dot"></span> {% trans "Planned" %}</span>
       {% endif %}
     </div>
   </div>
@@ -35,7 +36,7 @@
     </div>
 
     <div>
-      <div class="cat-label" style="margin-bottom: 0.75rem;">Stack</div>
+      <div class="cat-label" style="margin-bottom: 0.75rem;">{% trans "Stack" %}</div>
       <div class="tech-tags" style="margin-bottom: 2rem;">
         {% for tech in project.get_technologies_list %}
           <span class="tech-tag">{{ tech }}</span>
@@ -43,7 +44,7 @@
       </div>
 
       {% if project.github_url or project.live_url %}
-      <div class="cat-label" style="margin-bottom: 0.75rem;">Links</div>
+      <div class="cat-label" style="margin-bottom: 0.75rem;">{% trans "Links" %}</div>
       <div style="display: flex; flex-direction: column; gap: 0.4rem;">
         {% if project.github_url %}
           <a href="{{ project.github_url }}" target="_blank" rel="noopener" class="btn btn-sm">
@@ -52,7 +53,7 @@
         {% endif %}
         {% if project.live_url %}
           <a href="{{ project.live_url }}" target="_blank" rel="noopener" class="btn btn-sm btn-primary">
-            <i class="fa-solid fa-arrow-up-right-from-square"></i> Live demo
+            <i class="fa-solid fa-arrow-up-right-from-square"></i> {% trans "Live demo" %}
           </a>
         {% endif %}
       </div>
@@ -64,7 +65,7 @@
   {% if related %}
   <hr class="rule">
   <div class="section-row">
-    <h2>Other projects</h2>
+    <h2>{% trans "Other projects" %}</h2>
   </div>
   <div class="projects-list">
     {% for proj in related %}
@@ -79,7 +80,7 @@
         </div>
       </div>
       <div class="project-item-links">
-        <a href="{% url 'project_detail' proj.slug %}" class="btn btn-sm">View</a>
+        <a href="{% url 'project_detail' proj.slug %}" class="btn btn-sm">{% trans "View" %}</a>
       </div>
     </div>
     {% endfor %}

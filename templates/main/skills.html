@@ -1,13 +1,14 @@
 {% extends 'base.html' %}
+{% load i18n %}
 
-{% block title %}Skills — Bernd Slagter{% endblock %}
+{% block title %}{% trans "Skills" %} — Bernd Slagter{% endblock %}
 
 {% block content %}
 
 <div class="page-header">
   <div class="container">
-    <h1>Skills</h1>
-    <p>What I work with.</p>
+    <h1>{% trans "Skills" %}</h1>
+    <p>{% trans "What I work with." %}</p>
   </div>
 </div>
 
@@ -15,7 +16,7 @@
 
   {% if technical %}
   <section style="margin-bottom: 3rem;">
-    <div class="cat-label">Technical</div>
+    <div class="cat-label">{% trans "Technical" %}</div>
     <div class="skills-list">
       {% for skill in technical %}
       <div class="skill-item">
@@ -34,7 +35,7 @@
 
   {% if tools %}
   <section style="margin-bottom: 3rem;">
-    <div class="cat-label">Tools &amp; platforms</div>
+    <div class="cat-label">{% trans "Tools & platforms" %}</div>
     <div class="skills-list">
       {% for skill in tools %}
       <div class="skill-item">
@@ -53,7 +54,7 @@
 
   {% if soft %}
   <section style="margin-bottom: 3rem;">
-    <div class="cat-label">Other</div>
+    <div class="cat-label">{% trans "Other" %}</div>
     <div class="interests-wrap">
       {% for skill in soft %}
         <span class="interest-chip">{{ skill.name }}</span>
@@ -64,7 +65,7 @@
 
   {% if languages %}
   <section style="margin-bottom: 3rem;">
-    <div class="cat-label">Languages</div>
+    <div class="cat-label">{% trans "Languages" %}</div>
     <div class="skills-list">
       {% for skill in languages %}
       <div class="skill-item">
@@ -82,7 +83,7 @@
   {% endif %}
 
   {% if not technical and not tools and not soft and not languages %}
-  <p class="empty-state">Add skills via the admin panel.</p>
+  <p class="empty-state">{% trans "Add skills via the admin panel." %}</p>
   {% endif %}
 
 </div>

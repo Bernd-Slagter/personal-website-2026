@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load i18n %}
 
 {% block title %}Bernd Slagter{% endblock %}
 
@@ -9,14 +10,16 @@
     <h1 class="hero-name">Bernd Slagter</h1>
     <p class="hero-sub">MSc Information Management &middot; Netherlands</p>
     <p class="hero-bio">
-      I'm a master's student focused on how organisations collect, manage, and act on information.
-      I like building things with data — pipelines, dashboards, analysis tools — and thinking about
-      the systems that make information actually useful.
+      {% blocktrans trimmed %}
+        I'm a master's student focused on how organisations collect, manage, and act on information.
+        I like building things with data — pipelines, dashboards, analysis tools — and thinking about
+        the systems that make information actually useful.
+      {% endblocktrans %}
     </p>
     <div class="hero-actions">
-      <a href="{% url 'projects' %}" class="btn btn-primary">Projects</a>
-      <a href="{% url 'about' %}" class="btn">About</a>
-      <a href="{% url 'contact' %}" class="btn">Contact</a>
+      <a href="{% url 'projects' %}" class="btn btn-primary">{% trans "Projects" %}</a>
+      <a href="{% url 'about' %}" class="btn">{% trans "About" %}</a>
+      <a href="{% url 'contact' %}" class="btn">{% trans "Contact" %}</a>
     </div>
   </div>
 </section>
@@ -24,8 +27,8 @@
 <section class="section">
   <div class="container">
     <div class="section-row">
-      <h2>Featured projects</h2>
-      <a href="{% url 'projects' %}" style="font-size: 0.83rem; color: var(--muted);">All projects →</a>
+      <h2>{% trans "Featured projects" %}</h2>
+      <a href="{% url 'projects' %}" style="font-size: 0.83rem; color: var(--muted);">{% trans "All projects →" %}</a>
     </div>
 
     {% if featured_projects %}
@@ -52,13 +55,13 @@
               <i class="fa-solid fa-arrow-up-right-from-square"></i>
             </a>
           {% endif %}
-          <a href="{% url 'project_detail' project.slug %}" class="btn btn-sm">View</a>
+          <a href="{% url 'project_detail' project.slug %}" class="btn btn-sm">{% trans "View" %}</a>
         </div>
       </div>
       {% endfor %}
     </div>
     {% else %}
-    <p class="empty-state">No featured projects yet.</p>
+    <p class="empty-state">{% trans "No featured projects yet." %}</p>
     {% endif %}
   </div>
 </section>
@@ -66,8 +69,8 @@
 <section class="section" style="padding-top: 0;">
   <div class="container">
     <div class="section-row">
-      <h2>Skills</h2>
-      <a href="{% url 'skills' %}" style="font-size: 0.83rem; color: var(--muted);">All skills →</a>
+      <h2>{% trans "Skills" %}</h2>
+      <a href="{% url 'skills' %}" style="font-size: 0.83rem; color: var(--muted);">{% trans "All skills →" %}</a>
     </div>
 
     {% if skills %}
@@ -85,7 +88,7 @@
       {% endfor %}
     </div>
     {% else %}
-    <p class="empty-state">No skills added yet.</p>
+    <p class="empty-state">{% trans "No skills added yet." %}</p>
     {% endif %}
   </div>
 </section>
@@ -93,10 +96,10 @@
 <div class="container">
   <div class="cta-strip">
     <div>
-      <h2>Get in touch</h2>
-      <p>Open to collaborations, student projects, or just a conversation.</p>
+      <h2>{% trans "Get in touch" %}</h2>
+      <p>{% trans "Open to collaborations, student projects, or just a conversation." %}</p>
     </div>
-    <a href="{% url 'contact' %}" class="btn btn-primary">Say hello</a>
+    <a href="{% url 'contact' %}" class="btn btn-primary">{% trans "Say hello" %}</a>
   </div>
 </div>
 

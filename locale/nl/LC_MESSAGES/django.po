@@ -1,0 +1,188 @@
+# Dutch translations for PersonalWebsite
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: nl\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+# base.html — navigation
+msgid "Home"
+msgstr "Home"
+
+msgid "About"
+msgstr "Over mij"
+
+msgid "Projects"
+msgstr "Projecten"
+
+msgid "Skills"
+msgstr "Vaardigheden"
+
+msgid "Contact"
+msgstr "Contact"
+
+msgid "Email"
+msgstr "E-mail"
+
+msgid "Toggle light/dark mode"
+msgstr "Licht/donker modus"
+
+msgid "Toggle menu"
+msgstr "Menu"
+
+msgid "Select language"
+msgstr "Taal kiezen"
+
+msgid "Scroll to top"
+msgstr "Naar boven"
+
+# home.html
+msgid "I'm a master's student focused on how organisations collect, manage, and act on information. I like building things with data — pipelines, dashboards, analysis tools — and thinking about the systems that make information actually useful."
+msgstr "Ik ben een masterstudent die zich bezighoudt met hoe organisaties informatie verzamelen, beheren en gebruiken. Ik bouw graag dingen met data — pipelines, dashboards, analysetools — en denk na over de systemen die informatie werkelijk bruikbaar maken."
+
+msgid "Featured projects"
+msgstr "Uitgelichte projecten"
+
+msgid "All projects →"
+msgstr "Alle projecten →"
+
+msgid "View"
+msgstr "Bekijken"
+
+msgid "No featured projects yet."
+msgstr "Nog geen uitgelichte projecten."
+
+msgid "All skills →"
+msgstr "Alle vaardigheden →"
+
+msgid "No skills added yet."
+msgstr "Nog geen vaardigheden toegevoegd."
+
+msgid "Get in touch"
+msgstr "Neem contact op"
+
+msgid "Open to collaborations, student projects, or just a conversation."
+msgstr "Open voor samenwerking, studentenprojecten of gewoon een gesprek."
+
+msgid "Say hello"
+msgstr "Stuur een bericht"
+
+# about.html
+msgid "I'm pursuing an MSc in Information Management, which sits at the crossroads of IT, business, and data. My interest is in how organisations actually use the information they generate — not just storing it, but making it actionable."
+msgstr "Ik volg een MSc in Information Management, dat zich op het snijvlak bevindt van IT, bedrijfskunde en data. Mijn interesse ligt in hoe organisaties de informatie die ze genereren daadwerkelijk gebruiken — niet alleen opslaan, maar er ook mee handelen."
+
+msgid "On the technical side I work mostly with Python and SQL, build things with Django when a project calls for it, and spend a fair amount of time in Jupyter notebooks. On the business side I'm drawn to questions about information governance, data quality, and the gap between what a dashboard shows and what a decision-maker needs."
+msgstr "Aan de technische kant werk ik voornamelijk met Python en SQL, bouw ik dingen met Django als een project daarom vraagt, en breng ik veel tijd door in Jupyter notebooks. Aan de bedrijfskundige kant word ik aangetrokken door vragen over informatiebeheer, datakwaliteit en het verschil tussen wat een dashboard toont en wat een beslisser nodig heeft."
+
+msgid "Before the master's I studied Business & Information Management, which gave me a grounding in process design and IT infrastructure. Outside of studying I follow markets, read broadly, and go hiking when the weather cooperates."
+msgstr "Voor de master studeerde ik Bedrijfs- en Informatiemanagement, wat mij een basis gaf in procesontwerp en IT-infrastructuur. Buiten het studeren volg ik markten, lees ik breed en ga ik wandelen als het weer meewerkt."
+
+msgid "View projects"
+msgstr "Bekijk projecten"
+
+msgid "Degree"
+msgstr "Opleiding"
+
+msgid "Location"
+msgstr "Locatie"
+
+msgid "Languages"
+msgstr "Talen"
+
+msgid "Status"
+msgstr "Status"
+
+msgid "Dutch, English"
+msgstr "Nederlands, Engels"
+
+msgid "Open to opportunities"
+msgstr "Open voor kansen"
+
+msgid "Education"
+msgstr "Opleiding"
+
+msgid "Add education via the admin panel."
+msgstr "Voeg opleiding toe via het beheerpaneel."
+
+msgid "Experience"
+msgstr "Ervaring"
+
+msgid "Current"
+msgstr "Huidig"
+
+msgid "Add experience via the admin panel."
+msgstr "Voeg ervaring toe via het beheerpaneel."
+
+msgid "Interests"
+msgstr "Interesses"
+
+msgid "Add interests via the admin panel."
+msgstr "Voeg interesses toe via het beheerpaneel."
+
+# projects.html
+msgid "Things I've built or worked on."
+msgstr "Dingen die ik heb gebouwd of aan heb gewerkt."
+
+msgid "All"
+msgstr "Alles"
+
+msgid "Completed"
+msgstr "Voltooid"
+
+msgid "In progress"
+msgstr "Bezig"
+
+msgid "Planned"
+msgstr "Gepland"
+
+msgid "No projects found."
+msgstr "Geen projecten gevonden."
+
+# skills.html
+msgid "What I work with."
+msgstr "Waarmee ik werk."
+
+msgid "Technical"
+msgstr "Technisch"
+
+msgid "Tools & platforms"
+msgstr "Tools en platformen"
+
+msgid "Other"
+msgstr "Overig"
+
+msgid "Add skills via the admin panel."
+msgstr "Voeg vaardigheden toe via het beheerpaneel."
+
+# contact.html
+msgid "Happy to hear from you."
+msgstr "Leuk om van je te horen."
+
+msgid "Or send me a message directly and I'll get back to you within a day or two."
+msgstr "Of stuur me direct een bericht en ik reageer binnen een dag of twee."
+
+msgid "Name"
+msgstr "Naam"
+
+msgid "Subject"
+msgstr "Onderwerp"
+
+msgid "Message"
+msgstr "Bericht"
+
+msgid "Send message"
+msgstr "Bericht versturen"
+
+# project_detail.html
+msgid "Stack"
+msgstr "Stack"
+
+msgid "Links"
+msgstr "Links"
+
+msgid "Live demo"
+msgstr "Live demo"
+
+msgid "Other projects"
+msgstr "Andere projecten"

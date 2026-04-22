@@ -1,6 +1,6 @@
-{% load static %}
+{% load static i18n %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ request.LANGUAGE_CODE }}">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,21 +26,21 @@
   <div class="container nav-inner">
     <a href="{% url 'home' %}" class="nav-logo">Bernd Slagter</a>
     <ul class="nav-links" id="navLinks">
-      <li><a href="{% url 'home' %}">Home</a></li>
-      <li><a href="{% url 'about' %}">About</a></li>
-      <li><a href="{% url 'projects' %}">Projects</a></li>
-      <li><a href="{% url 'skills' %}">Skills</a></li>
-      <li><a href="{% url 'contact' %}">Contact</a></li>
+      <li><a href="{% url 'home' %}">{% trans "Home" %}</a></li>
+      <li><a href="{% url 'about' %}">{% trans "About" %}</a></li>
+      <li><a href="{% url 'projects' %}">{% trans "Projects" %}</a></li>
+      <li><a href="{% url 'skills' %}">{% trans "Skills" %}</a></li>
+      <li><a href="{% url 'contact' %}">{% trans "Contact" %}</a></li>
     </ul>
     <div class="nav-right">
-      <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark mode">
+      <button class="theme-toggle" id="themeToggle" aria-label="{% trans "Toggle light/dark mode" %}">
         <span class="toggle-track">
           <i class="fa-solid fa-moon toggle-icon"></i>
           <i class="fa-solid fa-sun toggle-icon"></i>
           <span class="toggle-thumb"></span>
         </span>
       </button>
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+      <button class="nav-toggle" id="navToggle" aria-label="{% trans "Toggle menu" %}">
         <i class="fa-solid fa-bars"></i>
       </button>
     </div>
@@ -57,12 +57,21 @@
     <div class="footer-links">
       <a href="https://linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
       <a href="https://github.com/" target="_blank" rel="noopener">GitHub</a>
-      <a href="mailto:bernd.slagter27@gmail.com">Email</a>
+      <a href="mailto:bernd.slagter27@gmail.com">{% trans "Email" %}</a>
     </div>
+    <form action="{% url 'set_language' %}" method="post" class="lang-selector">
+      {% csrf_token %}
+      <input name="next" type="hidden" value="{{ request.path }}">
+      <i class="fa-solid fa-globe lang-icon"></i>
+      <select name="language" onchange="this.form.submit()" aria-label="{% trans "Select language" %}">
+        <option value="en" {% if request.LANGUAGE_CODE == "en" %}selected{% endif %}>English</option>
+        <option value="nl" {% if request.LANGUAGE_CODE == "nl" %}selected{% endif %}>Nederlands</option>
+      </select>
+    </form>
   </div>
 </footer>
 
-<button id="scrollTop" aria-label="Scroll to top">
+<button id="scrollTop" aria-label="{% trans "Scroll to top" %}">
   <i class="fa-solid fa-arrow-up"></i>
 </button>
 
